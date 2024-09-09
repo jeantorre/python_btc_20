@@ -13,7 +13,7 @@ services:
       - mynetwork
 
   backend:
-    build: 
+    build:
       context: ./backend
       dockerfile: Dockerfile
     volumes:

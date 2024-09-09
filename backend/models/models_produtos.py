@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from pytz import timezone
-from sqlalchemy import Column, DateTime, Integer, String, Float
+from sqlalchemy import Column, DateTime, Float, Integer, String
 
 from backend.database import Base
 
@@ -9,9 +9,10 @@ from backend.database import Base
 CRIAR MODELOS DO BANCO DE DADOS (REGRA DE NEGÓCIOS)
 """
 
+
 class ModeloProdutos(Base):
     __tablename__ = "produtos"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     nome = Column(String)
     descricao = Column(String)

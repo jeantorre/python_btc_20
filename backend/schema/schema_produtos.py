@@ -1,7 +1,7 @@
-from pydantic import BaseModel, PositiveFloat, PositiveInt, EmailStr, validators
-from enum import Enum
 from datetime import datetime
 from typing import Optional
+
+from pydantic import BaseModel, EmailStr, PositiveFloat, PositiveInt
 
 """
 VALIDAÇÃO DE COMO OS DADOS VÃO TRAFEGAR
@@ -15,6 +15,7 @@ class ProdutoBase(BaseModel):
     categoria: str
     email_fornecedor: EmailStr
 
+
 class LerProduto(ProdutoBase):
     id: PositiveInt
     ultima_alteracao: datetime
@@ -22,8 +23,10 @@ class LerProduto(ProdutoBase):
     class Config:
         from_atributes = True
 
+
 class CriarProduto(ProdutoBase):
     pass
+
 
 class AtualizarProduto(ProdutoBase):
     nome: Optional[str] = None
