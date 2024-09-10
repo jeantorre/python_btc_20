@@ -19,5 +19,6 @@ class ModeloProdutos(Base):
     categoria = Column(String)
     email_fornecedor = Column(String)
     ultima_alteracao = Column(
-        DateTime, default=lambda: datetime.now(timezone("America/Sao_Paulo"))
+        DateTime(timezone=True),
+        default=lambda: datetime.now(timezone("America/Sao_Paulo")),
     )
