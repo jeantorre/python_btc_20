@@ -1,7 +1,6 @@
+from models.models_produtos import ModeloProdutos
+from schema.schema_produtos import AtualizarProduto, CriarProduto
 from sqlalchemy.orm import Session
-
-from backend.models.models_produtos import ModeloProdutos
-from backend.schema.schema import AtualizarProduto, CriarProduto
 
 """
 RESPONSÁVEL POR CRIAR AS 5 FUNÇÕES DO SQLALCHEMY

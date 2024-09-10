@@ -1,9 +1,8 @@
 from datetime import datetime
 
+from database import Base
 from pytz import timezone
 from sqlalchemy import Column, DateTime, Float, Integer, String
-
-from backend.database import Base
 
 """
 CRIAR MODELOS DO BANCO DE DADOS (REGRA DE NEGÓCIOS)

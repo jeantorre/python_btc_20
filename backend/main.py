@@ -1,10 +1,9 @@
+import models.models_produtos
+from database import engine
 from fastapi import FastAPI
+from routers.router_produto import rotas
 
-import backend.models.models_produtos
-from backend.database import engine
-from backend.routers import router_produto
-
-backend.models.models_produtos.Base.metadata.create_all(bind=engine)
+models.models_produtos.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-app.include_router(router_produto)
+app.include_router(rotas)

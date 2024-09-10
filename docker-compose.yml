@@ -1,14 +1,12 @@
 services:
-  db:
-    image: postgres
+  postgres:
+    image: postgres:latest
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: mydatabase
-    ports:
-      - '5432:5432'
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
     networks:
       - mynetwork
 
@@ -18,12 +16,13 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend:/app
+    environment:
+      DATABASE_URL: postgresql://user:password@postgres/mydatabase
+      PYTHONPATH: /app
     ports:
       - "8000:8000"
-    environment:
-      DATABASE_URL: "postgresql://myuser:mypassword@postgres/mydatabase"
     depends_on:
-      - db
+      - postgres
     networks:
       - mynetwork
 

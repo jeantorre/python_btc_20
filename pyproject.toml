@@ -15,8 +15,8 @@ sqlalchemy = "^2.0.34"
 datetime = "^5.5"
 pytz = "^2024.1"
 pydantic = "^2.9.0"
-fastapi = {extras = ["standart"], version = "^0.114.0"}
 psycopg2-binary = "^2.9.9"
+fastapi = {extras = ["standard"], version = "^0.114.0"}
 
 
 [build-system]
