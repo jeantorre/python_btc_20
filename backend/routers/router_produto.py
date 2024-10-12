@@ -42,9 +42,7 @@ def criar_um_produto(produto: CriarProduto, db: Session = Depends(get_db)):
 def atualizar_um_produto(
     produto_id: int, produto: AtualizarProduto, db: Session = Depends(get_db)
 ):
-    db_produto = atualizar_produto(
-        produto_id=produto_id, db=db, produto=AtualizarProduto
-    )
+    db_produto = atualizar_produto(id_produto=produto_id, produto=produto, db=db)
     if db_produto is None:
         raise HTTPException(status_code=404, detail="Este produto não existe.")
     return db_produto
