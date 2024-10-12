@@ -1,4 +1,7 @@
+from datetime import datetime
+
 from models.models_produtos import ModeloProdutos
+from pytz import timezone
 from schema.schema_produtos import AtualizarProduto, CriarProduto
 from sqlalchemy.orm import Session
 
@@ -63,6 +66,8 @@ def atualizar_produto(db: Session, id_produto: int, produto=AtualizarProduto):
 
     if produto.email_fornecedor is not None:
         db_produto.email_fornecedor = produto.email_fornecedor
+
+    db_produto.ultima_alteracao = datetime.now(timezone("America/Sao_Paulo"))
 
     db.commit()
     db.refresh(db_produto)
