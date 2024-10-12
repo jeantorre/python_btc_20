@@ -21,6 +21,10 @@ rotas = APIRouter()
 
 @rotas.get("/produtos/", response_model=List[LerProduto])
 def ler_todos_produtos(db: Session = Depends(get_db)):
+    """
+    Endpoint para ler todos os produtos que foram inseridos
+    no banco de dados.
+    """
     produtos = ler_produtos(db)
     return produtos
 
@@ -50,7 +54,7 @@ def atualizar_um_produto(
 
 @rotas.delete("/produtos/{produto_id}", response_model=LerProduto)
 def deletar_um_produto(produto_id: int, db: Session = Depends(get_db)):
-    db_produto = deletar_produto(produto_id=produto_id, db=db)
+    db_produto = deletar_produto(id_produto=produto_id, db=db)
     if db_produto is None:
         raise HTTPException(status_code=404, detail="Este produto não existe.")
     return db_produto
